@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="找磁力 - 专业磁力链接聚合与资源索引平台，提供高清影视、软件工具、电子书等资源的磁力种子搜索与下载指南，包含详细的资源分类、版本筛选及安全下载提示。">
+    <meta name="keywords" content="找磁力,磁力链接,磁力搜索,种子下载,资源索引,高清影视,软件下载,磁力站">
+    <title>找磁力-高清资源磁力链接聚合与下载指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-sub: #64748b;
+            --border-color: #e2e8f0;
+            --radius: 8px;
+            --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-sub);
+            transition: color 0.2s;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-bar {
+            display: flex;
+            background: var(--bg-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 0.3rem;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .search-bar input {
+            border: none;
+            background: transparent;
+            flex: 1;
+            padding: 0.4rem 0.8rem;
+            outline: none;
+            font-size: 0.95rem;
+        }
+
+        .search-bar button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            padding: 0 1rem;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .search-bar button:hover {
+            background: var(--primary-hover);
+        }
+
+        /* Main Content */
+        main {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            padding: 2rem 1rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            margin-bottom: 3rem;
+            padding: 3rem 1rem;
+            background: linear-gradient(135deg, #eff6ff 0%, #ffffff 100%);
+            border-radius: var(--radius);
+            border: 1px solid #dbeafe;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-sub);
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-num {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+        }
+
+        /* Categories */
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-left: 0.8rem;
+            border-left: 4px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .category-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            text-align: center;
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+        }
+
+        .category-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+            border-color: var(--primary-color);
+        }
+
+        .category-icon {
+            font-size: 2rem;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+
+        .category-name {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .category-count {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            margin-top: 0.3rem;
+        }
+
+        /* Resource List */
+        .resource-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .resource-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 1.25rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            align-items: center;
+            transition: box-shadow 0.2s;
+        }
+
+        .resource-card:hover {
+            box-shadow: var(--shadow);
+        }
+
+        .res-thumb {
+            width: 100px;
+            height: 70px;
+            background-color: #e2e8f0;
+            border-radius: 4px;
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .res-info {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .res-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: var(--text-main);
+        }
+
+        .res-meta {
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .res-tag {
+            background-color: #f1f5f9;
+            color: var(--text-sub);
+            padding: 0.1rem 0.4rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        .res-desc {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            margin-bottom: 0.8rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .res-actions {
+            display: flex;
+            gap: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: 1px solid var(--primary-color);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            color: var(--text-sub);
+            border: 1px solid var(--border-color);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-sub);
+            color: var(--text-main);
+        }
+
+        /* Guide Section */
+        .guide-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .guide-steps {
+            counter-reset: step;
+            list-style: none;
+        }
+
+        .guide-steps li {
+            position: relative;
+            padding-left: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .guide-steps li::before {
+            counter-increment: step;
+            content: counter(step);
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 2rem;
+            height: 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 2rem;
+            font-weight: 700;
+        }
+
+        .guide-steps h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .guide-steps p {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e293b;
+            color: #94a3b8;
+            padding: 3rem 1rem 1rem;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid #334155;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .search-bar {
+                max-width: 100%;
+            }
+
+            .resource-card {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .res-thumb {
+                width: 100%;
+                height: 180px;
+            }
+
+            .res-actions {
+                width: 100%;
+                justify-content: stretch;
+            }
+
+            .btn {
+                flex: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                <span>找磁力</span>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">最新更新</a></li>
+                    <li><a href="#">影视专区</a></li>
+                    <li><a href="#">软件工具</a></li>
+                    <li><a href="#">帮助中心</a></li>
+                </ul>
+            </nav>
+            <div class="search-bar">
+                <input type="text" placeholder="输入资源名称搜索...">
+                <button>搜索</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <h1>海量资源，一键直达</h1>
+            <p>专注于提供安全、稳定的磁力链接聚合服务。无论是高清电影、最新软件还是专业教材，这里都能帮你找到最合适的种子。</p>
+            <div class="hero-stats">
+                <div class="stat-item">
+                    <div class="stat-num">500K+</div>
+                    <div class="stat-label">收录资源</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num">10W+</div>
+                    <div class="stat-label">活跃用户</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-num">99.9%</div>
+                    <div class="stat-label">在线率</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Categories -->
+        <section>
+            <div class="section-title">热门资源分类</div>
+            <div class="category-grid">
+                <div class="category-card">
+                    <span class="category-icon">🎬</span>
+                    <div class="category-name">高清影视</div>
+                    <div class="category-count">120,543 个资源</div>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">💻</span>
+                    <div class="category-name">软件工具</div>
+                    <div class="category-count">45,210 个资源</div>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">📚</span>
+                    <div class="category-name">电子书刊</div>
+                    <div class="category-count">89,320 个资源</div>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🎵</span>
+                    <div class="category-name">音乐专辑</div>
+                    <div class="category-count">32,100 个资源</div>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🎮</span>
+                    <div class="category-name">游戏资源</div>
+                    <div class="category-count">56,780 个资源</div>
+                </div>
+                <div class="category-card">
+                    <span class="category-icon">🎓</span>
+                    <div class="category-name">学术资料</div>
+                    <div class="category-count">15,400 个资源</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Latest Resources -->
+        <section>
+            <div class="section-title">
+                最新收录
+                <a href="#" style="font-size: 0.9rem; color: var(--primary-color);">查看全部 &rarr;</a>
+            </div>
+            <div class="resource-list">
+                <!-- Resource 1 -->
+                <article class="resource-card">
+                    <img src="https://picsum.photos/seed/movie1/200/140" alt="电影封面" class="res-thumb">
+                    <div class="res-info">
+                        <h2 class="res-title">奥本海默 (2023) 4K HDR 中英双字 1080P BT下载</h2>
+                        <div class="res-meta">
+                            <span class="res-tag">电影</span>
+                            <span class="res-tag">IMAX</span>
+                            <span>文件大小: 45.2 GB</span>
+                            <span>发布时间: 2023-08-01</span>
+                        </div>
+                        <p class="res-desc">克里斯托弗·诺兰执导的传记电影，讲述了美国“原子弹之父”罗伯特·奥本海默主导制造出世界上第一颗原子弹的故事。画质清晰，音效震撼。</p>
+                    </div>
+                    <div class="res-actions">
+                        <a href="#" class="btn btn-primary">获取磁力</a>
+                        <a href="#" class="btn btn-outline">详情</a>
+                    </div>
+                </article>
+
+                <!-- Resource 2 -->
+                <article class="resource-card">
+                    <img src="https://picsum.photos/seed/soft1/200/140" alt="软件封面" class="res-thumb">
+                    <div class="res-info">
+                        <h2 class="res-title">Adobe Photoshop 2024 精简版 v25.0 激活版 直连下载</h2>
+                        <div class="res-meta">
+                            <span class="res-tag">设计软件</span>
+                            <span class="res-tag">Win/Mac</span>
+                            <span>文件大小: 1.8 GB</span>
+                            <span>发布时间: 2023-10-15</span>
+                        </div>
+                        <p class="res-desc">全球领先的图像处理软件，支持图层、蒙版、滤镜等专业功能。本版本已集成最新破解补丁，支持离线激活，安装简单。</p>
+                    </div>
+                    <div class="res-actions">
+                        <a href="#" class="btn btn-primary">获取磁力</a>
+                        <a href="#" class="btn btn-outline">详情</a>
+                    </div>
+                </article>
+
+                <!-- Resource 3 -->
+                <article class="resource-card">
+                    <img src="https://picsum.photos/seed/book1/200/140" alt="书籍封面" class="res-thumb">
+                    <div class="res-info">
+                        <h2 class="res-title">Python编程：从入门到实践（第2版）高清PDF扫描版</h2>
+                        <div class="res-meta">
+                            <span class="res-tag">编程教程</span>
+                            <span class="res-tag">PDF</span>
+                            <span>文件大小: 85 MB</span>
+                            <span>发布时间: 2023-11-02</span>
+                        </div>
+                        <p class="res-desc">本书是一本针对所有层次的Python读者而作的Python入门书。书中从基本的语法开始，逐步深入到项目实战，适合初学者阅读。</p>
+                    </div>
+                    <div class="res-actions">
+                        <a href="#" class="btn btn-primary">获取磁力</a>
+                        <a href="#" class="btn btn-outline">详情</a>
+                    </div>
+                </article>
+
+                <!-- Resource 4 -->
+                <article class="resource-card">
+                    <img src="https://picsum.photos/seed/game1/200/140" alt="游戏封面" class="res-thumb">
+                    <div class="res-info">
+                        <h2 class="res-title">艾尔登法环 Goldberg版 全DLC 完整整合版</h2>
+                        <div class="res-meta">
+                            <span class="res-tag">单机游戏</span>
+                            <span class="res-tag">PC</span>
+                            <span>文件大小: 85 GB</span>
+                            <span>发布时间: 2023-09-20</span>
+                        </div>
+                        <p class="res-desc">FromSoftware开发，宫崎英高担任导演的动作角色扮演游戏。包含所有已发布的DLC内容，支持多语言，无需联网即可游玩。</p>
+                    </div>
+                    <div class="res-actions">
+                        <a href="#" class="btn btn-primary">获取磁力</a>
+                        <a href="#" class="btn btn-outline">详情</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Guide Section -->
+        <section class="guide-section">
+            <div class="section-title">如何使用磁力下载？</div>
+            <ul class="guide-steps">
+                <li>
+                    <h3>1. 选择合适的资源</h3>
+                    <p>在分类列表中找到您需要的资源，点击“获取磁力”按钮，或直接复制页面提供的 Magnet 链接。</p>
+                </li>
+                <li>
+                    <h3>2. 安装下载工具</h3>
+                    <p>在电脑上安装 BT 下载软件（如迅雷、qBittorrent、BitComet 等）。这些软件能够解析磁力链接并建立 P2P 下载连接。</p>
+                </li>
+                <li>
+                    <h3>3. 开始下载</h3>
+                    <p>将磁力链接粘贴到下载软件中，选择保存路径，点击开始即可。下载速度取决于您的网络环境以及该资源的做种人数。</p>
+                </li>
+                <li>
+                    <h3>4. 注意安全与版权</h3>
+                    <p>请确保下载的软件和内容符合当地法律法规。建议使用杀毒软件扫描下载的文件，防止携带恶意代码。</p>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>关于找磁力</h4>
+                <p style="font-size: 0.9rem; line-height: 1.6;">找磁力致力于为用户提供便捷、高效的资源索引服务。我们通过聚合各大公开资源站点的磁力链接，帮助用户快速找到所需内容。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="#">最新收录</a></li>
+                    <li><a href="#">热门榜单</a></li>
+                    <li><a href="#">软件下载</a></li>
+                    <li><a href="#">影视专区</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>常见问题</h4>
+                <ul>
+                    <li><a href="#">磁力链接打不开怎么办？</a></li>
+                    <li><a href="#">如何提高下载速度？</a></li>
+                    <li><a href="#">网站收录规则是什么？</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系我们</h4>
+                <ul>
+                    <li>合作邮箱: contact@example.com</li>
+                    <li>反馈建议: support@example.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 找磁力. All Rights Reserved. 本站仅提供索引服务，所有资源均来自互联网，版权归原作者所有。</p>
+        </div>
+    </footer>
+
+</body>
+                  </html>
