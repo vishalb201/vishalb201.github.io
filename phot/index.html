@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photopea下载站-专业在线PS替代品与资源聚合平台</title>
+    <meta name="description" content="Photopea下载站提供Photopea官方下载指南、离线安装包备份、高级插件安装教程及高清素材资源，帮助用户快速掌握这款基于Web的Photoshop替代工具。">
+    <meta name="keywords" content="Photopea下载站, Photopea下载, Photopea安装, 在线PS, 网页版PS, Photopea教程, Photopea插件">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --accent-hover: #2980b9;
+            --bg-light: #f8f9fa;
+            --bg-white: #ffffff;
+            --text-main: #333333;
+            --text-secondary: #666666;
+            --border-color: #e1e4e8;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.08);
+            --radius: 8px;
+            --container-width: 1200px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            color: var(--text-main);
+            background-color: var(--bg-light);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--bg-white);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-main);
+        }
+
+        .nav-links a:hover, .nav-links a.active {
+            color: var(--accent-color);
+        }
+
+        .btn-download {
+            background-color: var(--accent-color);
+            color: white;
+            padding: 8px 20px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: background-color 0.2s;
+        }
+
+        .btn-download:hover {
+            background-color: var(--accent-hover);
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto 32px;
+        }
+
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .btn-hero {
+            padding: 12px 32px;
+            border-radius: var(--radius);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid rgba(255,255,255,0.8);
+            color: white;
+        }
+
+        .btn-primary:hover, .btn-outline:hover {
+            opacity: 0.9;
+            transform: translateY(-1px);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 60px 0;
+            background-color: var(--bg-white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .section-header h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 12px;
+        }
+
+        .section-header p {
+            color: var(--text-secondary);
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            padding: 30px;
+            border-radius: var(--radius);
+            background-color: var(--bg-light);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .feature-icon {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--accent-color);
+        }
+
+        .feature-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+        }
+
+        .feature-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Download Section */
+        .download-section {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .download-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .download-info h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .download-info p {
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .download-steps {
+            margin-top: 30px;
+        }
+
+        .step {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .step-num {
+            background-color: var(--accent-color);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-content h4 {
+            margin-bottom: 4px;
+            color: var(--primary-color);
+        }
+
+        .step-content p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .download-box {
+            background-color: var(--bg-white);
+            padding: 40px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+        }
+
+        .app-preview {
+            width: 100%;
+            height: 300px;
+            background-color: #eef2f5;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .app-preview::after {
+            content: "Photopea 界面预览";
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        .version-list {
+            text-align: left;
+            margin-bottom: 24px;
+        }
+
+        .version-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 0.9rem;
+        }
+
+        .version-item:last-child {
+            border-bottom: none;
+        }
+
+        .tag {
+            background-color: #e1f5fe;
+            color: #0277bd;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+        }
+
+        /* Resources Grid */
+        .resources-section {
+            padding: 80px 0;
+            background-color: var(--bg-white);
+        }
+
+        .resource-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .resource-card {
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            overflow: hidden;
+            transition: box-shadow 0.2s;
+        }
+
+        .resource-card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .resource-thumb {
+            height: 140px;
+            background-color: #ddd;
+            position: relative;
+        }
+
+        .resource-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .resource-info {
+            padding: 16px;
+        }
+
+        .resource-info h4 {
+            font-size: 1rem;
+            margin-bottom: 8px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .resource-info span {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 80px 0;
+            background-color: var(--bg-light);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background-color: var(--bg-white);
+            margin-bottom: 16px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--text-secondary);
+            display: none;
+            border-top: 1px solid var(--border-color);
+            padding-top: 16px;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: "-";
+        }
+
+        .faq-item.active .faq-question::before {
+            content: "+";
+            font-size: 1.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            color: rgba(255,255,255,0.5);
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .download-container {
+                grid-template-columns: 1fr;
+            }
+
+            .resource-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <span>Photopea</span>下载站
+            </a>
+            <nav class="nav-links">
+                <a href="#features" class="active">核心功能</a>
+                <a href="#download">下载安装</a>
+                <a href="#resources">资源素材</a>
+                <a href="#faq">常见问题</a>
+            </nav>
+            <a href="#download" class="btn-download">立即开始</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <h1>无需安装，在线即用的专业级PS替代品</h1>
+                <p>Photopea 是一款功能强大的基于 Web 的图像编辑器，完美兼容 PSD、AI、XD 格式。本站提供最新版下载指引、离线安装包及实用教程。</p>
+                <div class="hero-btns">
+                    <a href="#download" class="btn-hero btn-primary">获取 Photopea</a>
+                    <a href="#features" class="btn-hero btn-outline">查看功能特性</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>为什么选择 Photopea？</h2>
+                    <p>无需下载庞大的安装包，打开浏览器即可享受专业设计体验</p>
+                </div>
+                <div class="feature-grid">
+                    <article class="feature-card">
+                        <div class="feature-icon">🎨</div>
+                        <h3>专业图层与混合模式</h3>
+                        <p>支持所有主流图层操作，包括剪贴蒙版、智能对象、调整图层等，满足复杂修图需求。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">📂</div>
+                        <h3>全格式兼容</h3>
+                        <p>完美支持 .psd, .ai, .eps, .pdf 等格式，无缝导入导出 Adobe 生态文件。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">☁️</div>
+                        <h3>云端存储</h3>
+                        <p>支持保存到 Google Drive, Dropbox, OneDrive，随时随地继续编辑您的项目。</p>
+                    </article>
+                    <article class="feature-card">
+                        <div class="feature-icon">🛠️</div>
+                        <h3>丰富滤镜库</h3>
+                        <p>内置超过 100 种滤镜和效果，包括模糊、锐化、扭曲等，支持外部插件扩展。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Download Section -->
+        <section id="download" class="download-section">
+            <div class="container">
+                <div class="download-container">
+                    <div class="download-info">
+                        <h2>如何开始使用 Photopea？</h2>
+                        <p>Photopea 运行在浏览器中，您不需要进行复杂的安装程序下载。但对于需要离线环境或特定配置的用户，请参考以下步骤。</p>
+                        
+                        <div class="download-steps">
+                            <div class="step">
+                                <div class="step-num">1</div>
+                                <div class="step-content">
+                                    <h4>打开官网</h4>
+                                    <p>在浏览器中访问 official Photopea 网站地址。</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-num">2</div>
+                                <div class="step-content">
+                                    <h4>选择离线模式</h4>
+                                    <p>点击右上角菜单，选择“离线模式”以减少网络延迟。</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <div class="step-num">3</div>
+                                <div class="step-content">
+                                    <h4>开始创作</h4>
+                                    <p>加载完成后，您将看到熟悉的 Photoshop 界面，直接开始编辑即可。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="download-box">
+                        <div class="app-preview"></div>
+                        <h3>版本信息</h3>
+                        <div class="version-list">
+                            <div class="version-item">
+                                <span>Photopea Pro (推荐)</span>
+                                <span class="tag">在线版</span>
+                            </div>
+                            <div class="version-item">
+                                <span>Desktop Client</span>
+                                <span class="tag">离线包</span>
+                            </div>
+                            <div class="version-item">
+                                <span>Chrome Extension</span>
+                                <span class="tag">插件</span>
+                            </div>
+                        </div>
+                        <a href="https://www.photopea.com" target="_blank" class="btn-download" style="width: 100%; display: block; text-align: center;">访问官方网站</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources Section -->
+        <section id="resources" class="resources-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>精选资源与插件</h2>
+                    <p>提升工作效率的必备工具与素材</p>
+                </div>
+                <div class="resource-grid">
+                    <a href="#" class="resource-card">
+                        <div class="resource-thumb">
+                            <img src="https://picsum.photos/seed/psd/400/250" alt="PSD模板">
+                        </div>
+                        <div class="resource-info">
+                            <h4>UI设计模板合集</h4>
+                            <span>更新于 2023-10</span>
+                        </div>
+                    </a>
+                    <a href="#" class="resource-card">
+                        <div class="resource-thumb">
+                            <img src="https://picsum.photos/seed/font/400/250" alt="字体资源">
+                        </div>
+                        <div class="resource-info">
+                            <h4>商用字体推荐</h4>
+                            <span>更新于 2023-10</span>
+                        </div>
+                    </a>
+                    <a href="#" class="resource-card">
+                        <div class="resource-thumb">
+                            <img src="https://picsum.photos/seed/icon/400/250" alt="图标素材">
+                        </div>
+                        <div class="resource-info">
+                            <h4>SVG矢量图标库</h4>
+                            <span>更新于 2023-09</span>
+                        </div>
+                    </a>
+                    <a href="#" class="resource-card">
+                        <div class="resource-thumb">
+                            <img src="https://picsum.photos/seed/brush/400/250" alt="笔刷预设">
+                        </div>
+                        <div class="resource-info">
+                            <h4>Photoshop笔刷预设</h4>
+                            <span>更新于 2023-09</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>常见问题解答</h2>
+                    <p>关于 Photopea 下载与使用的疑问</p>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">Photopea 是免费的吗？</div>
+                        <div class="faq-answer">
+                            是的，Photopea 提供基础功能的免费版本，支持大部分日常编辑需求。高级功能（如更多存储空间、特定插件）可能需要订阅 Pro 会员。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">可以离线使用 Photopea 吗？</div>
+                        <div class="faq-answer">
+                            可以。通过在浏览器中启用“离线模式”或安装 PWA（渐进式 Web 应用），您可以在没有网络连接的情况下使用 Photopea 进行编辑，但保存功能需要网络支持。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">下载的文件安全吗？</div>
+                        <div class="faq-answer">
+                            本站提供的所有资源均来自官方或开源社区，经过安全扫描。请务必从官方网站下载 Photopea 核心程序，避免安装捆绑软件。
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">Photopea 能替代 Photoshop 吗？</div>
+                        <div class="faq-answer">
+                            对于大多数非专业级用户（如社交媒体运营、简单修图、平面设计初学者），Photopea 是一个极佳的替代品。但对于需要极高精度、复杂3D渲染或特定高端插件的专业工作流，Photoshop 依然更具优势。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="logo" style="margin-bottom: 16px; color: white;">
+                        <span>Photopea</span>下载站
+                    </div>
+                    <p style="color: rgba(255,255,255,0.7); font-size: 0.9rem;">
+                        致力于为用户提供最便捷的 Photopea 获取渠道与学习资源，帮助设计师和爱好者在浏览器中释放创意。
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#features">功能介绍</a></li>
+                        <li><a href="#download">下载指南</a></li>
+                        <li><a href="#resources">资源下载</a></li>
+                        <li><a href="#faq">帮助中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>支持</h4>
+                    <ul>
+                        <li><a href="#">官方文档</a></li>
+                        <li><a href="#">用户社区</a></li>
+                        <li><a href="#">插件商店</a></li>
+                        <li><a href="#">联系我们</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">微博</a></li>
+                        <li><a href="#">微信公众号</a></li>
+                        <li><a href="#">GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Photopea下载站. All rights reserved. 本站仅提供下载指引与资源聚合，Photopea 为第三方产品。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ Toggle Logic
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                item.querySelector('.faq-question').addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Smooth scroll for anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
